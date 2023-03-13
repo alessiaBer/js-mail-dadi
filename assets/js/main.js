@@ -42,14 +42,16 @@ form.addEventListener('submit', function(e) {
             hasAccess = true;
         }
     }
-    
+
     //verifico che la mail sia presente nell'array
     if (hasAccess) {
         //stampo un messaggio se l'utente può accedere
         resultSpan.innerHTML = 'Yay! You\'re allowed to access!';
+        resultSpan.style.color = 'var(--bs-success)'
     } else {
         //altrimenti stampo un messaggio diverso
         resultSpan.innerHTML = 'Sorry! You\'re not allowed to access!';
+        resultSpan.style.color = 'var(--bs-danger)'
     }
     
     containerEl.insertAdjacentElement('beforeend', resultSpan);
