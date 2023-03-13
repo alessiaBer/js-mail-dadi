@@ -21,6 +21,9 @@ const userMail = prompt('What is your email?'); */
 
 // richiamo dal DOM l'elemento form e lo assegno ad una variabile
 const form = document.querySelector('form');
+// richiamo dal DOM l'elemento div.container e lo assegno ad una variabile
+const containerEl = document.querySelector('.container');
+
 
 // assegno al form un event listener al submit
 form.addEventListener('submit', function(e) {
@@ -31,15 +34,19 @@ form.addEventListener('submit', function(e) {
     const emailInput = document.querySelector('input');
     // assegno il valore dell'input ad una variabile
     const userMail = emailInput.value;
-    console.log(userMail)
+
+    const resultSpan = document.createElement('span');
+
     //verifico che la mail sia presente nell'array
     if (validMails.includes(userMail)) {
     //stampo un messaggio se l'utente può accedere
-        console.log('Yay! You\'re allowed to access!');
+    resultSpan.innerHTML = 'Yay! You\'re allowed to access!';
     } else {
     //altrimenti stampo un messaggio diverso
-        console.log('Sorry! You\'re not allowed to access!')
+    resultSpan.innerHTML = 'Sorry! You\'re not allowed to access!';
     }
+    
+    containerEl.insertAdjacentElement('beforeend', resultSpan);
 })
 
 
