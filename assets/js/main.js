@@ -16,15 +16,14 @@ const validMails = [
     'randomEmail6@yahoo.com'
 ];
 
-/* chiedo all'user la sua mail e la assegno ad una variabile
-const userMail = prompt('What is your email?'); */
-
 // richiamo dal DOM l'elemento form e lo assegno ad una variabile
 const form = document.querySelector('form');
 // richiamo dal DOM l'elemento div.container e lo assegno ad una variabile
 const containerEl = document.querySelector('.container');
 
+//creo un elemento span nel DOM e lo assegno ad una variabile 
 const resultSpan = document.createElement('span');
+
 // assegno al form un event listener al submit
 form.addEventListener('submit', function(e) {
     // prevengo l'evento di default del submit di un form
@@ -35,17 +34,20 @@ form.addEventListener('submit', function(e) {
     // assegno il valore dell'input ad una variabile
     const userMail = emailInput.value;
 
+    //assegno il valore iniziale false alla variabile che determina il permesso di accedere
     let hasAccess = false;
 
+    // creo un loop che passi gli elementi dell'array
     for (let i = 0; i < validMails.length; i++) {
+        //verifico se la mail inserita nell'input sia uguale ad una delle mail dell'array
         if (userMail == validMails[i]) {
             hasAccess = true;
         }
     }
 
-    //verifico che la mail sia presente nell'array
+    // creo un if statement con, come condizione, il valore della variabile hasAccess
     if (hasAccess) {
-        //stampo un messaggio se l'utente può accedere
+        //stampo un messaggio nello span creato se hasAccess è vera
         resultSpan.innerHTML = 'Yay! You\'re allowed to access!';
         resultSpan.style.color = 'var(--bs-success)'
     } else {
@@ -54,9 +56,12 @@ form.addEventListener('submit', function(e) {
         resultSpan.style.color = 'var(--bs-danger)'
     }
     
+    // inserisco nel container del DOM l'elemento span precedentemente creato
     containerEl.insertAdjacentElement('beforeend', resultSpan);
 })
 
+
+// assegno al form un event listener al reset
 form.addEventListener('reset', function(e) {
     resultSpan.innerHTML = '';
 })
