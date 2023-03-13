@@ -19,14 +19,30 @@ const validMails = [
 /* chiedo all'user la sua mail e la assegno ad una variabile
 const userMail = prompt('What is your email?'); */
 
-//verifico che la mail sia presente nell'array
-if (validMails.includes(userMail)) {
+// richiamo dal DOM l'elemento form e lo assegno ad una variabile
+const form = document.querySelector('form');
+
+// assegno al form un event listener al submit
+form.addEventListener('submit', function(e) {
+    // prevengo l'evento di default del submit di un form
+    e.preventDefault();
+
+    // richiamo dal DOM l'elemento input e lo assegno ad una variabile
+    const emailInput = document.querySelector('input');
+    // assegno il valore dell'input ad una variabile
+    const userMail = emailInput.value;
+    console.log(userMail)
+    //verifico che la mail sia presente nell'array
+    if (validMails.includes(userMail)) {
     //stampo un messaggio se l'utente può accedere
-    console.log('Yay! You\'re allowed to access!');
-} else {
+        console.log('Yay! You\'re allowed to access!');
+    } else {
     //altrimenti stampo un messaggio diverso
-    console.log('Sorry! You\'re not allowed to access!')
-}
+        console.log('Sorry! You\'re not allowed to access!')
+    }
+})
+
+
 
 
 
