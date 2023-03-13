@@ -1,3 +1,4 @@
+/***** MAIL *****/ 
 /* Chiedi all’utente la sua email, 
 controlla che sia nella lista di chi può accedere, 
 stampa un messaggio appropriato sull’esito del controllo */
@@ -20,4 +21,29 @@ if (validMails.includes(userMail)) {
 } else {
     //altrimenti stampo un messaggio diverso
     console.log('Sorry! You\'re not allowed to access!')
+}
+
+
+
+/***** GIOCO DEI DADI *****/ 
+/* Generare un numero random da 1 a 6, sia per il giocatore sia per il computer. 
+Stabilire il vincitore, in base a chi fa il punteggio più alto. */
+
+//genero un un numero random per il giocatore e lo assegno ad una variabile
+const playerNumber = Math.ceil((Math.random() * 5) + 1);
+console.log(playerNumber);
+//genero un un numero random per il computer e lo assegno ad una variabile
+const computerNumber = Math.ceil((Math.random() * 5) + 1);
+console.log(computerNumber);
+
+// stabilisco il vincitore 
+if (playerNumber > computerNumber) {
+    //stampo un messaggio se il numero del giocatore è maggiore di quello del computer
+    console.log('User wins!')
+} else if (computerNumber > playerNumber) {
+    //stampo un messaggio diverso se il numero del computer è maggiore di quello del giocatore
+    console.log('Computer wins!')
+} else {
+    //stampo un messaggio diverso se nessuna delle due condizioni si avvera
+    console.log('Retry! Nobody wins!')
 }
