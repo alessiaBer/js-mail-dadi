@@ -3,6 +3,9 @@
 controlla che sia nella lista di chi può accedere, 
 stampa un messaggio appropriato sull’esito del controllo */
 
+/** mail bonus **/
+//Usiamo un input e un bottone per inserire la mail e poi mostriamo i risultati in pagina.
+
 //creo un array contentente gli indirizzi mail che possono accedere
 const validMails = [
     'randomEmail1@yahoo.com',
@@ -12,8 +15,10 @@ const validMails = [
     'randomEmail5@yahoo.com',
     'randomEmail6@yahoo.com'
 ];
-//chiedo all'user la sua mail e la assegno ad una variabile
-const userMail = prompt('What is your email?');
+
+/* chiedo all'user la sua mail e la assegno ad una variabile
+const userMail = prompt('What is your email?'); */
+
 //verifico che la mail sia presente nell'array
 if (validMails.includes(userMail)) {
     //stampo un messaggio se l'utente può accedere
